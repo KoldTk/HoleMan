@@ -244,11 +244,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0747c6270efe24284a746d0684bcf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
-  spacing: 0.3
+  _level: 1
+  _spacing: 0.3
   tilePrefab: {fileID: 3608817230286325665, guid: ea78a43712647a641a1ae2cd0c171551, type: 3}
   characterDatabase: {fileID: 11400000, guid: c91b2c7fa15aad94d9f61246c218aa6f, type: 2}
-  holePrefab: {fileID: 1667982244325686332, guid: 9edef25b46a287c41857abf84eb283fe, type: 3}
+  holeDatabase: {fileID: 11400000, guid: ab5b8447fa614074a96cd1ff50fa479e, type: 2}
+  holePrefab: {fileID: 1875949965628945453, guid: fb4b0835191088949a491fe7a9075f3d, type: 3}
 --- !u!4 &1148547458
 Transform:
   m_ObjectHideFlags: 0
@@ -264,9 +265,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1984450750
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1984450752}
+  - component: {fileID: 1984450751}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1984450751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984450750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3378e15fee96c0469c50278cd3e27c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelData: {fileID: 0}
+  player: {fileID: 0}
+--- !u!4 &1984450752
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984450750}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.13348284, y: 0.013083305, z: -0.5492599}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 1148547458}
+  - {fileID: 1984450752}

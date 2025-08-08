@@ -1,3 +1,4 @@
+using DG.Tweening.Core.Easing;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class GroundTile : MonoBehaviour
     [SerializeField] private float _detectDistance;
     private bool _isStepped = false;
     [SerializeField] private LayerMask _playerLayer;
+    public int posX;
+    public int posY;
 
     void Start()
     {
@@ -20,6 +23,7 @@ public class GroundTile : MonoBehaviour
     {
         Vector3 targetPos;
         DetectPlayer();
+        
         //Lower block if character step on, return to original when character leave
         if (_isStepped)
         {
@@ -32,7 +36,6 @@ public class GroundTile : MonoBehaviour
         Vector3 nextPos = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * _lowerSpeed);
         MoveBlock(nextPos);
     }
-    
     private void DetectPlayer()
     {
         //Detect player go through the block
@@ -48,12 +51,9 @@ public class GroundTile : MonoBehaviour
 
         transform.position = targetPos;
     }    
-#if UNITY_EDITOR
-    void OnDrawGizmosSelected()
+    public void SetupTilePos(int x, int y)
     {
-        Gizmos.color = Color.green;
-        Vector3 origin = transform.position + Vector3.back * 0.1f;
-        Gizmos.DrawWireSphere(origin, _detectRadius);
+        posX = x;
+        posY = y;
     }
-#endif
 }

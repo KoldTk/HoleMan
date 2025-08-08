@@ -12,8 +12,7 @@ public class CharacterDatabase : ScriptableObject
 [System.Serializable]
 public class CharacterInfo
 {
-    public string characterName;
     public GameObject characterPrefab;
     public CharacterColor characterColor;
 }
-public enum CharacterColor { Red, Green, Blue}
+public enum CharacterColor { Red, Green, Blue, Yellow, Purple}
