@@ -169,7 +169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 778427857722908263}
   - component: {fileID: 2279826895857634479}
-  - component: {fileID: 158699856684080684}
+  - component: {fileID: 3261704649262343735}
   m_Layer: 6
   m_Name: Character_Mixamo
   m_TagString: Player
@@ -215,7 +215,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &158699856684080684
+--- !u!114 &3261704649262343735
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -224,10 +224,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1667982244325686332}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20c1d36b02ee45f48b0ef8aec27a8e97, type: 3}
+  m_Script: {fileID: 11500000, guid: c455f9691e25d8049b62f3f39fef9eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: 0
+  activeTile: {fileID: 0}
+  characterColor: 0
+  _moveSpeed: 1
 --- !u!1 &1931629183380885709
 GameObject:
   m_ObjectHideFlags: 0

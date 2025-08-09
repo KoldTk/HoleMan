@@ -6,6 +6,7 @@ using UnityEngine;
 public enum Event
 {
     HoleClick,
+    MoveCharacter,
 }
 public class EventDispatcher<T>
 {

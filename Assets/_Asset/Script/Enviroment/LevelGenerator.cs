@@ -1,28 +1,38 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class LevelGenerator : MonoBehaviour
+public class LevelGenerator : Singleton<LevelGenerator>
 {
     [SerializeField] private int _level;
     [SerializeField] private float _spacing;
-    public GameObject tilePrefab;
-    public CharacterDatabase characterDatabase;
-    public HoleDatabase holeDatabase;
-    public GameObject holePrefab;
+    public Dictionary<Vector2, GridTile> map;
     private readonly Dictionary<int, int> _cellCodeToID = new()
     {
         //Get prefabID that match the cell code
+        //1 = red, 2 = blue, 3 = yellow, 4 = purple
+        //-1 = red hole, -2 = blue hole, -3 = yellow hole, -4 = purple hole
         [1] = 0, [-1] = 0,
         [2] = 1, [-2] = 1,
         [3] = 2, [-3] = 2,
         [4] = 3, [-4] = 3,
-    };    
-    //1 = red, 2 = blue, 3 = yellow, 4 = purple
-    //9 = red hole, 8 = blue hole, 7 = yellow hole, 6 = purple hole
+    };
+    [Header("Database")]
+    public CharacterDatabase characterDatabase;
+    public HoleDatabase holeDatabase;
+
+    [Header("Prefabs")]
+    public GameObject tilePrefab;
+    public GameObject holePrefab;
+    public GridTile overlayTilePrefab;
+    public GameObject overlayContainer;
+
     void Start()
     {
         string levelFilePath = $"Levels/Level{_level}";
+        map = new Dictionary<Vector2, GridTile>();
         GenerateLevel(levelFilePath);
     }
     void GenerateLevel(string filePath)
@@ -57,7 +67,8 @@ public class LevelGenerator : MonoBehaviour
                 //Get spawn position for tile
                 Vector3 spawnPos = parentPos + new Vector3(x * _spacing - offsetX, -y * _spacing + offsetY, 0);
                 int cellCode = int.Parse(cells[x]); // Get cell codes to spawn the correct prefab
-
+                Vector3Int cellPos = new Vector3Int(x, -y, 0);
+                if (cellCode == 0) continue;
                 if (cellCode < 0)
                 {
                     //Check if top and left position is empty to spawn hole
@@ -67,16 +78,18 @@ public class LevelGenerator : MonoBehaviour
                     if (isTopLeft)
                     {
                         SpawnHole(cellCode, spawnPos);
+
                     }
                 }
-                else
+                else if (cellCode > 0)
                 {
                     Instantiate(tilePrefab, spawnPos, Quaternion.identity, transform);
+
                 }
-                    SpawnCharacter(cellCode, spawnPos);
+                SpawnGridMap(cellCode, spawnPos); //Show map on 2D world
             }
         }
-    } 
+    }
     private float GetOffsetX(string[] lines)
     {
         int cols = lines[0].Trim().Split(' ').Length;
@@ -92,24 +105,45 @@ public class LevelGenerator : MonoBehaviour
     private void SpawnCharacter(int cellCode, Vector3 spawnPos)
     {
         int ID = _cellCodeToID.TryGetValue(cellCode, out int value) ? value : 1;
-        SetupCharacterInfo(ID, spawnPos);
+
     }
     private void SpawnHole(int cellCode, Vector3 spawnPos)
     {
         int ID = _cellCodeToID.TryGetValue(cellCode, out int value) ? value : 1;
         SetupHoleInfo(ID, spawnPos);
-    }    
-    private void SetupCharacterInfo(int charID, Vector3 spawnPos)
+    }
+    private void SpawnGridMap(int cellCode, Vector3 spawnPos)
+    {
+        int holeID = _cellCodeToID.TryGetValue(cellCode, out int value) ? value : 1;
+        Vector3 overlayPos = new Vector3(spawnPos.x, spawnPos.y, spawnPos.z - 0.5f);
+        var overlayKey = new Vector2(spawnPos.x, spawnPos.y);
+        var overlayTile = Instantiate(overlayTilePrefab, overlayPos, Quaternion.identity, overlayContainer.transform);
+        if (cellCode < 0)
+        {
+            overlayTile.AddComponent<HoleTile>();
+            HoleTile info = overlayTile.GetComponent<HoleTile>();
+            info.holeColor = holeDatabase[holeID].holeColor;
+            info.tag = "Hole";
+        }
+        else
+        {
+            SetupCharacterInfo(holeID, spawnPos, overlayTile);
+        }
+            map.Add(overlayKey, overlayTile);
+        overlayTile.gridLocation = overlayPos;
+    }
+    private void SetupCharacterInfo(int charID, Vector3 spawnPos, GridTile tile)
     {
         GameObject character = Instantiate(characterDatabase[charID].characterPrefab, spawnPos + Vector3.back, Quaternion.identity);
-        PlayerController info = character.GetComponent<PlayerController>();
-        info.characterColor = characterDatabase[charID].characterColor;
+        CharInfo info = character.GetComponent<CharInfo>();
+        info.currentColor = characterDatabase[charID].characterColor;
+        info.activeTile = tile;
     }
+    
     private void SetupHoleInfo(int holeID, Vector3 spawnPos)
     {
         GameObject hole = Instantiate(holePrefab, spawnPos, Quaternion.identity, transform);
         HoleTile info = hole.GetComponentInChildren<HoleTile>();
         info.holeColor = holeDatabase[holeID].holeColor;
     }    
-    
 }
