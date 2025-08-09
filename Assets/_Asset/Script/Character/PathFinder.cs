@@ -44,10 +44,8 @@ public class PathFinder
 
             }
         }
-
         return new List<GridTile>();
     }
-
     private List<GridTile> GetFinishedPath(GridTile start, GridTile end)
     {
         List<GridTile> finishedPath = new List<GridTile>();
@@ -67,38 +65,39 @@ public class PathFinder
     {
         return Mathf.Abs(start.gridLocation.x - neighbour.gridLocation.x) + Mathf.Abs(start.gridLocation.y - neighbour.gridLocation.y);
     }
-
     private List<GridTile> GetNeighbourTiles(GridTile currentGridTile)
     {
         var map = LevelGenerator.Instance.map;
-        List<GridTile> neightbours = new List<GridTile>();
-        
-        //Top
-        Vector2 locationToCheck = new Vector2(currentGridTile.gridLocation.x, currentGridTile.gridLocation.y + spacing);
-        if (map.ContainsKey(locationToCheck))
-        {
-            neightbours.Add(map[locationToCheck]);
-        }
+        List<GridTile> neighbours = new List<GridTile>();
 
-        //Bottom
-        locationToCheck = new Vector2(currentGridTile.gridLocation.x, currentGridTile.gridLocation.y - spacing);
-        if (map.ContainsKey(locationToCheck))
+        bool IsSameColor(GridTile currentTile, GridTile nextTile)
         {
-            neightbours.Add(map[locationToCheck]);
-        }
+            if (nextTile.gridColor == CharacterColor.None || currentGridTile.gridColor == CharacterColor.None)
+            {
+                return true;
+            }
 
-        //Right
-        locationToCheck = new Vector2(currentGridTile.gridLocation.x + spacing, currentGridTile.gridLocation.y);
-        if (map.ContainsKey(locationToCheck))
-        {
-            neightbours.Add(map[locationToCheck]);
+            return currentTile.gridColor == nextTile.gridColor; //Check next tile's color
         }
-        //Left
-        locationToCheck = new Vector2(currentGridTile.gridLocation.x - spacing, currentGridTile.gridLocation.y);
-        if (map.ContainsKey(locationToCheck))
-        {
-            neightbours.Add(map[locationToCheck]);
-        }
-        return neightbours;
+        // Top
+        Vector2 loc = new Vector2(currentGridTile.gridLocation.x, currentGridTile.gridLocation.y + spacing);
+        if (map.TryGetValue(loc, out var top) && IsSameColor(currentGridTile, top))
+            neighbours.Add(top);
+
+        // Bottom
+        loc = new Vector2(currentGridTile.gridLocation.x, currentGridTile.gridLocation.y - spacing);
+        if (map.TryGetValue(loc, out var bottom) && IsSameColor(currentGridTile, bottom))
+            neighbours.Add(bottom);
+
+        // Right
+        loc = new Vector2(currentGridTile.gridLocation.x + spacing, currentGridTile.gridLocation.y);
+        if (map.TryGetValue(loc, out var right) && IsSameColor(currentGridTile, right))
+            neighbours.Add(right);
+
+        // Left
+        loc = new Vector2(currentGridTile.gridLocation.x - spacing, currentGridTile.gridLocation.y);
+        if (map.TryGetValue(loc, out var left) && IsSameColor(currentGridTile, left))
+            neighbours.Add(left);
+        return neighbours;
     }
 }

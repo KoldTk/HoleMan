@@ -2,23 +2,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CharInfo : MonoBehaviour
 {
     public GridTile activeTile;
-    public CharacterColor currentColor;
+    public CharacterColor characterColor;
     private PathFinder _pathFinder;
     private GridTile _targetTile;
     private bool _canMove;
-    private bool _isActive = true;
     private List<GridTile> _path = new List<GridTile>();
     [SerializeField] private float _moveSpeed;
-    private void Update()
-    {
-    }
     private void LateUpdate()
     {
-        if (!_isActive) return;
         if (_canMove && _path.Count > 0)
         {
             MoveAlongPath();
@@ -35,7 +31,6 @@ public class CharInfo : MonoBehaviour
     {
         EventDispatcher<CharacterColor>.RemoveListener(Event.HoleClick.ToString(), GetHoleColor);
         EventDispatcher<GridTile>.RemoveListener(Event.MoveCharacter.ToString(), ClickHole);
-        
     }
     private void MoveAlongPath()
     {
@@ -44,25 +39,41 @@ public class CharInfo : MonoBehaviour
 
         transform.position = Vector2.MoveTowards(transform.position, _path[0].transform.position, step);
         transform.position = new Vector3(transform.position.x, transform.position.y, zIndex);
-
         if (Vector2.Distance(transform.position, _path[0].transform.position) < 0.0001f)
         {
             _path.RemoveAt(0);
-        }    
+            if (_path.Count == 0)
+            {
+                activeTile.gridColor = CharacterColor.None;
+                activeTile.isBlocked = false;
+                _canMove = false;
+                gameObject.SetActive(false);
+            }    
+        }
     }
     private void ClickHole(GridTile holeTile)
     {
         _targetTile = holeTile;
-        _path = _pathFinder.FindPath(activeTile, _targetTile);
+        TryFindPathAndMove();
+        Debug.Log(_canMove);
     }
     private void GetHoleColor(CharacterColor color)
     {
-        if (currentColor != color) return;
+        if (characterColor != color) return;
         _canMove = true;
-    } 
-    private void OnReachDestination()
+        TryFindPathAndMove();
+    }
+    private void TryFindPathAndMove()
     {
-        _isActive = false;
-        gameObject.SetActive(false);
-    }    
+        if (_targetTile == null || !_canMove) return;
+
+        _path = _pathFinder.FindPath(activeTile, _targetTile);
+        Debug.Log($"FindPath returned path with {_path.Count} nodes");
+
+        if (_path.Count == 0)
+        {
+            Debug.LogWarning("No path found!");
+            _canMove = false; // không di chuyển nếu không có đường
+        }
+    }
 }

@@ -102,11 +102,6 @@ public class LevelGenerator : Singleton<LevelGenerator>
         float offsetY = (rows - 1) * _spacing / 2f;
         return offsetY;
     }
-    private void SpawnCharacter(int cellCode, Vector3 spawnPos)
-    {
-        int ID = _cellCodeToID.TryGetValue(cellCode, out int value) ? value : 1;
-
-    }
     private void SpawnHole(int cellCode, Vector3 spawnPos)
     {
         int ID = _cellCodeToID.TryGetValue(cellCode, out int value) ? value : 1;
@@ -114,7 +109,7 @@ public class LevelGenerator : Singleton<LevelGenerator>
     }
     private void SpawnGridMap(int cellCode, Vector3 spawnPos)
     {
-        int holeID = _cellCodeToID.TryGetValue(cellCode, out int value) ? value : 1;
+        int ID = _cellCodeToID.TryGetValue(cellCode, out int value) ? value : 1;
         Vector3 overlayPos = new Vector3(spawnPos.x, spawnPos.y, spawnPos.z - 0.5f);
         var overlayKey = new Vector2(spawnPos.x, spawnPos.y);
         var overlayTile = Instantiate(overlayTilePrefab, overlayPos, Quaternion.identity, overlayContainer.transform);
@@ -122,24 +117,24 @@ public class LevelGenerator : Singleton<LevelGenerator>
         {
             overlayTile.AddComponent<HoleTile>();
             HoleTile info = overlayTile.GetComponent<HoleTile>();
-            info.holeColor = holeDatabase[holeID].holeColor;
+            info.holeColor = holeDatabase[ID].holeColor;
             info.tag = "Hole";
         }
         else
         {
-            SetupCharacterInfo(holeID, spawnPos, overlayTile);
+            SetupCharacterInfo(ID, spawnPos, overlayTile);
         }
-            map.Add(overlayKey, overlayTile);
+        map.Add(overlayKey, overlayTile);
         overlayTile.gridLocation = overlayPos;
+        overlayTile.gridColor = characterDatabase[ID].characterColor;
     }
     private void SetupCharacterInfo(int charID, Vector3 spawnPos, GridTile tile)
     {
         GameObject character = Instantiate(characterDatabase[charID].characterPrefab, spawnPos + Vector3.back, Quaternion.identity);
         CharInfo info = character.GetComponent<CharInfo>();
-        info.currentColor = characterDatabase[charID].characterColor;
+        info.characterColor = characterDatabase[charID].characterColor;
         info.activeTile = tile;
     }
-    
     private void SetupHoleInfo(int holeID, Vector3 spawnPos)
     {
         GameObject hole = Instantiate(holePrefab, spawnPos, Quaternion.identity, transform);

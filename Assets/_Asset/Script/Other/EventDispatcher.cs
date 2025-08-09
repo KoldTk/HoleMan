@@ -7,6 +7,7 @@ public enum Event
 {
     HoleClick,
     MoveCharacter,
+    ClearPath,
 }
 public class EventDispatcher<T>
 {

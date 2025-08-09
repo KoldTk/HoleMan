@@ -15,4 +15,4 @@ public class CharacterInfo
     public GameObject characterPrefab;
     public CharacterColor characterColor;
 }
-public enum CharacterColor { Red, Green, Blue, Yellow, Purple}
+public enum CharacterColor { Red, Green, Blue, Yellow, Purple, None}

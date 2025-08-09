@@ -6,12 +6,4 @@ using UnityEngine;
 public class HoleTile : MonoBehaviour
 {
     public CharacterColor holeColor;
-    private void Update()
-    {
-  
-    }
-    private void Start()
-    {
-
-    }
 }
