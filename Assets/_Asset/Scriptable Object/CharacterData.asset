@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: CharacterData
   m_EditorClassIdentifier: 
   characterInfos:
-  - characterName: Red Char
+  - ID: 0
     characterPrefab: {fileID: 2659281984073256830, guid: 6048182069176a442b13d3901131b9d3, type: 3}
     characterColor: 0
-  - characterName: Blue Char
+  - ID: 1
     characterPrefab: {fileID: 1667982244325686332, guid: 9edef25b46a287c41857abf84eb283fe, type: 3}
     characterColor: 2

@@ -123,6 +123,53 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &171415704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 171415706}
+  - component: {fileID: 171415705}
+  m_Layer: 0
+  m_Name: Character Pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &171415705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171415704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ee072683e1112241af082253fe9f6de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _characterDatabase: {fileID: 11400000, guid: c91b2c7fa15aad94d9f61246c218aa6f, type: 2}
+  _poolSizePerCharacter: 50
+  _parentTransform: {fileID: 171415706}
+--- !u!4 &171415706
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171415704}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.3120328, y: -0.43424553, z: -0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,37 +262,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1204166780
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1204166782}
-  m_Layer: 0
-  m_Name: OverlayContainer
-  m_TagString: Grid
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1204166782
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1204166780}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.30809975, y: -0.33982444, z: 0.7174015}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2010292721
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,7 +340,7 @@ MonoBehaviour:
   tilePrefab: {fileID: 3608817230286325665, guid: ea78a43712647a641a1ae2cd0c171551, type: 3}
   holePrefab: {fileID: 1875949965628945453, guid: fb4b0835191088949a491fe7a9075f3d, type: 3}
   overlayTilePrefab: {fileID: 2863664812285646050, guid: 4b64563c301c2344bb2d14d616498f08, type: 3}
-  overlayContainer: {fileID: 1204166780}
+  overlayContainer: {fileID: 0}
 --- !u!1 &2072986591
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,4 +491,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 2010292723}
-  - {fileID: 1204166782}
+  - {fileID: 171415706}

@@ -8,6 +8,7 @@ public class CharInfo : MonoBehaviour
 {
     public GridTile activeTile;
     public CharacterColor characterColor;
+    public int characterID;
     private PathFinder _pathFinder;
     private GridTile _targetTile;
     private bool _canMove;
@@ -31,6 +32,7 @@ public class CharInfo : MonoBehaviour
     {
         EventDispatcher<CharacterColor>.RemoveListener(Event.HoleClick.ToString(), GetHoleColor);
         EventDispatcher<GridTile>.RemoveListener(Event.MoveCharacter.ToString(), ClickHole);
+        CharacterPoolManager.Instance.ReturnToPool(characterID, gameObject);
     }
     private void MoveAlongPath()
     {
@@ -69,7 +71,6 @@ public class CharInfo : MonoBehaviour
 
         _path = _pathFinder.FindPath(activeTile, _targetTile);
         Debug.Log($"FindPath returned path with {_path.Count} nodes");
-
         if (_path.Count == 0)
         {
             Debug.LogWarning("No path found!");

@@ -50,7 +50,7 @@ public class LevelGenerator : Singleton<LevelGenerator>
         Vector3 parentPos = transform.position;
         string[] lines = textFile.text.Split('\n');
 
-        //Get offset value so tile spawn around the center
+        //Get offset value so tile spawn map around the center
         float offsetX = GetOffsetX(lines);
         float offsetY = GetOffsetY(lines);
 
@@ -78,13 +78,11 @@ public class LevelGenerator : Singleton<LevelGenerator>
                     if (isTopLeft)
                     {
                         SpawnHole(cellCode, spawnPos);
-
                     }
                 }
                 else if (cellCode > 0)
                 {
                     Instantiate(tilePrefab, spawnPos, Quaternion.identity, transform);
-
                 }
                 SpawnGridMap(cellCode, spawnPos); //Show map on 2D world
             }
@@ -112,7 +110,7 @@ public class LevelGenerator : Singleton<LevelGenerator>
         int ID = _cellCodeToID.TryGetValue(cellCode, out int value) ? value : 1;
         Vector3 overlayPos = new Vector3(spawnPos.x, spawnPos.y, spawnPos.z - 0.5f);
         var overlayKey = new Vector2(spawnPos.x, spawnPos.y);
-        var overlayTile = Instantiate(overlayTilePrefab, overlayPos, Quaternion.identity, overlayContainer.transform);
+        var overlayTile = Instantiate(overlayTilePrefab, overlayPos + Vector3.back, Quaternion.identity);
         if (cellCode < 0)
         {
             overlayTile.AddComponent<HoleTile>();
@@ -130,7 +128,7 @@ public class LevelGenerator : Singleton<LevelGenerator>
     }
     private void SetupCharacterInfo(int charID, Vector3 spawnPos, GridTile tile)
     {
-        GameObject character = Instantiate(characterDatabase[charID].characterPrefab, spawnPos + Vector3.back, Quaternion.identity);
+        GameObject character = CharacterPoolManager.Instance.GetCharacter(characterDatabase[charID].ID, spawnPos + Vector3.back, Quaternion.identity);
         CharInfo info = character.GetComponent<CharInfo>();
         info.characterColor = characterDatabase[charID].characterColor;
         info.activeTile = tile;

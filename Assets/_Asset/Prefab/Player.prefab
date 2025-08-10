@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2636145311712648196
 Transform:
   m_ObjectHideFlags: 0
@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeTile: {fileID: 0}
   characterColor: 2
+  characterID: 1
   _moveSpeed: 1
 --- !u!1 &2979289830689278394
 GameObject:

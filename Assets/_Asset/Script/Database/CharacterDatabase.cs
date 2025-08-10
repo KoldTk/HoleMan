@@ -12,6 +12,7 @@ public class CharacterDatabase : ScriptableObject
 [System.Serializable]
 public class CharacterInfo
 {
+    public int ID;
     public GameObject characterPrefab;
     public CharacterColor characterColor;
 }
