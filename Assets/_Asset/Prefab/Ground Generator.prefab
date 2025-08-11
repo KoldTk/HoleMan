@@ -125,10 +125,6 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
 --- !u!1 &490075638812120206
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,10 +250,6 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
 --- !u!1 &902385772493126159
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,10 +375,6 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
 --- !u!1 &1308336512119699711
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,10 +500,6 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
 --- !u!1 &1557425765467496777
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,11 +624,7 @@ MonoBehaviour:
   _detectDistance: 1.5
   _playerLayer:
     serializedVersion: 2
-    m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
+    m_Bits: 0
 --- !u!1 &2125080276867881162
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,10 +750,6 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
 --- !u!1 &2260804841484207176
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,11 +906,7 @@ MonoBehaviour:
   _detectDistance: 1.5
   _playerLayer:
     serializedVersion: 2
-    m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
+    m_Bits: 0
 --- !u!1 &2804950579521419625
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,11 +1031,7 @@ MonoBehaviour:
   _detectDistance: 1.5
   _playerLayer:
     serializedVersion: 2
-    m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
+    m_Bits: 0
 --- !u!1 &3062841870537145712
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,11 +1156,7 @@ MonoBehaviour:
   _detectDistance: 1.5
   _playerLayer:
     serializedVersion: 2
-    m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
+    m_Bits: 0
 --- !u!1 &3239502328331236280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,11 +1281,7 @@ MonoBehaviour:
   _detectDistance: 1.5
   _playerLayer:
     serializedVersion: 2
-    m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
+    m_Bits: 0
 --- !u!1 &3627587766306018062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1447,10 +1407,6 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
 --- !u!1 &3680740434880314478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1575,11 +1531,7 @@ MonoBehaviour:
   _detectDistance: 1.5
   _playerLayer:
     serializedVersion: 2
-    m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
+    m_Bits: 0
 --- !u!1 &3878368738370888511
 GameObject:
   m_ObjectHideFlags: 0
@@ -1704,11 +1656,7 @@ MonoBehaviour:
   _detectDistance: 1.5
   _playerLayer:
     serializedVersion: 2
-    m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
+    m_Bits: 0
 --- !u!1 &4542609103810298431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1898,10 +1846,6 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
 --- !u!1 &4988481362786014858
 GameObject:
   m_ObjectHideFlags: 0
@@ -2026,11 +1970,7 @@ MonoBehaviour:
   _detectDistance: 1.5
   _playerLayer:
     serializedVersion: 2
-    m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
+    m_Bits: 0
 --- !u!1 &5297835674623547464
 GameObject:
   m_ObjectHideFlags: 0
@@ -2155,11 +2095,7 @@ MonoBehaviour:
   _detectDistance: 1.5
   _playerLayer:
     serializedVersion: 2
-    m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
+    m_Bits: 0
 --- !u!1 &5336884449067013735
 GameObject:
   m_ObjectHideFlags: 0
@@ -2284,11 +2220,7 @@ MonoBehaviour:
   _detectDistance: 1.5
   _playerLayer:
     serializedVersion: 2
-    m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
+    m_Bits: 0
 --- !u!1 &5423148242395862505
 GameObject:
   m_ObjectHideFlags: 0
@@ -2414,10 +2346,6 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
 --- !u!1 &5423625918843048949
 GameObject:
   m_ObjectHideFlags: 0
@@ -2542,11 +2470,7 @@ MonoBehaviour:
   _detectDistance: 1.5
   _playerLayer:
     serializedVersion: 2
-    m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
+    m_Bits: 0
 --- !u!1 &5504474226918304613
 GameObject:
   m_ObjectHideFlags: 0
@@ -2672,10 +2596,6 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
 --- !u!1 &5612342901278435245
 GameObject:
   m_ObjectHideFlags: 0
@@ -2801,10 +2721,6 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
 --- !u!1 &5821946450459470383
 GameObject:
   m_ObjectHideFlags: 0
@@ -2930,10 +2846,6 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
 --- !u!1 &5823514020595388507
 GameObject:
   m_ObjectHideFlags: 0
@@ -3059,10 +2971,6 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
 --- !u!1 &5868374168467687349
 GameObject:
   m_ObjectHideFlags: 0
@@ -3188,10 +3096,6 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
 --- !u!1 &5995727363459064250
 GameObject:
   m_ObjectHideFlags: 0
@@ -3317,10 +3221,6 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
 --- !u!1 &6847419661764871104
 GameObject:
   m_ObjectHideFlags: 0
@@ -3445,11 +3345,7 @@ MonoBehaviour:
   _detectDistance: 1.5
   _playerLayer:
     serializedVersion: 2
-    m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
+    m_Bits: 0
 --- !u!1 &7530318462766694552
 GameObject:
   m_ObjectHideFlags: 0
@@ -3575,10 +3471,6 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
 --- !u!1 &7748369227871698492
 GameObject:
   m_ObjectHideFlags: 0
@@ -3704,10 +3596,6 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
 --- !u!1 &7846161176825820118
 GameObject:
   m_ObjectHideFlags: 0
@@ -3833,10 +3721,6 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
 --- !u!1 &7864892442711469033
 GameObject:
   m_ObjectHideFlags: 0
@@ -4080,11 +3964,7 @@ MonoBehaviour:
   _detectDistance: 1.5
   _playerLayer:
     serializedVersion: 2
-    m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
+    m_Bits: 0
 --- !u!1 &9037572449955171026
 GameObject:
   m_ObjectHideFlags: 0
@@ -4209,11 +4089,7 @@ MonoBehaviour:
   _detectDistance: 1.5
   _playerLayer:
     serializedVersion: 2
-    m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}
+    m_Bits: 0
 --- !u!1 &9195181404756824668
 GameObject:
   m_ObjectHideFlags: 0
@@ -4339,7 +4215,3 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  G: 0
-  H: 0
-  isBlocked: 0
-  previousTile: {fileID: 0}

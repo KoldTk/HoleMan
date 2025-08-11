@@ -10,6 +10,7 @@ public class PointCaculateArea : MonoBehaviour
     [SerializeField] private GameObject _additionalArea;
     [SerializeField] private List<ReserveArea> _reserveArea = new List<ReserveArea>();
     private float _UFOStartingHeight;
+    
 
     void Start()
     {
@@ -17,12 +18,12 @@ public class PointCaculateArea : MonoBehaviour
     }
     private void OnEnable()
     {
-        EventDispatcher<CharacterColor>.AddListener(Event.CaculatingPoint.ToString(), SpawnUFO);
+        EventDispatcher<CharacterColor>.AddListener(Event.CaculatePoint.ToString(), SpawnUFO);
         EventDispatcher<bool>.AddListener(Event.SpawnReserveArea.ToString(), SpawnAdditionalArea);
     }
     private void OnDisable()
     {
-        EventDispatcher<CharacterColor>.RemoveListener(Event.CaculatingPoint.ToString(), SpawnUFO);
+        EventDispatcher<CharacterColor>.RemoveListener(Event.CaculatePoint.ToString(), SpawnUFO);
         EventDispatcher<bool>.RemoveListener(Event.SpawnReserveArea.ToString(), SpawnAdditionalArea);
     }
 

@@ -12,13 +12,6 @@ public class MouseController : MonoBehaviour
             ButtonClick();
         }
     }
-    private void OnDisable()
-    {
-    }  
-    public void MoveCharacter(Vector2Int targetPos)
-    {
-        
-    }
     private void ButtonClick()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

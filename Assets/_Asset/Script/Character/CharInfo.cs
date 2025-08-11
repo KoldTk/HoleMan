@@ -12,6 +12,7 @@ public class CharInfo : MonoBehaviour
     private PathFinder _pathFinder;
     private GridTile _targetTile;
     private bool _canMove;
+    private bool _isMoving;
     private List<GridTile> _path = new List<GridTile>();
     [SerializeField] private float _moveSpeed;
     private void LateUpdate()
@@ -32,6 +33,7 @@ public class CharInfo : MonoBehaviour
     {
         EventDispatcher<CharacterColor>.RemoveListener(Event.HoleClick.ToString(), GetHoleColor);
         EventDispatcher<GridTile>.RemoveListener(Event.MoveCharacter.ToString(), ClickHole);
+        EventDispatcher<CharacterColor>.Dispatch(Event.CountCharacter.ToString(), characterColor);
         CharacterPoolManager.Instance.ReturnToPool(characterID, gameObject);
     }
     private void MoveAlongPath()
@@ -55,9 +57,9 @@ public class CharInfo : MonoBehaviour
     }
     private void ClickHole(GridTile holeTile)
     {
+        if (_isMoving) return;
         _targetTile = holeTile;
         TryFindPathAndMove();
-        Debug.Log(_canMove);
     }
     private void GetHoleColor(CharacterColor color)
     {
@@ -67,14 +69,18 @@ public class CharInfo : MonoBehaviour
     }
     private void TryFindPathAndMove()
     {
-        if (_targetTile == null || !_canMove) return;
+        if (_targetTile == null || !_canMove || _isMoving) return;
 
         _path = _pathFinder.FindPath(activeTile, _targetTile);
-        Debug.Log($"FindPath returned path with {_path.Count} nodes");
-        if (_path.Count == 0)
+        if (_path.Count > 0)
         {
-            Debug.LogWarning("No path found!");
-            _canMove = false; // không di chuyển nếu không có đường
+            _isMoving = true;
         }
+        else
+        {
+            _canMove = false;
+        }
+
+
     }
 }

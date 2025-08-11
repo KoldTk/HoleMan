@@ -7,7 +7,7 @@ public class ButtonTest : MonoBehaviour
     public CharacterColor color;
     public void Button()
     {
-        EventDispatcher<CharacterColor>.Dispatch(Event.CaculatingPoint.ToString(), color);
+        EventDispatcher<CharacterColor>.Dispatch(Event.CaculatePoint.ToString(), color);
     }
     public void SpawnReserveArea()
     {

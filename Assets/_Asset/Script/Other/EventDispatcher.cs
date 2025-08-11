@@ -7,7 +7,8 @@ public enum Event
 {
     HoleClick,
     MoveCharacter,
-    CaculatingPoint,
+    CaculatePoint,
+    CountCharacter,
     SpawnReserveArea,
 }
 public class EventDispatcher<T>
