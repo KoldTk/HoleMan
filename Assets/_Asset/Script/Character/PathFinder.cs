@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PathFinder
 {
-    private float spacing = 0.3f;
+    private float spacing = 1;
     public List<GridTile> FindPath(GridTile start, GridTile end)
     {
         List<GridTile> openList = new List<GridTile>();
