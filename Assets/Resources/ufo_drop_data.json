@@ -1,0 +1,410 @@
+{
+  "isActiveTest": true,
+  "activeLevel": 50,
+  "DropLevelsData": [
+    {
+      "levelID": 300,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 301,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 302,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 303,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 304,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 305,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 306,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 307,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 308,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 309,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 310,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 311,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 312,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 313,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 314,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 315,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 316,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 317,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 318,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 319,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 320,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 321,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 322,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 323,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 324,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 325,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 326,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 327,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 328,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 329,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 330,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 331,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 332,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 333,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 334,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 335,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 336,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 337,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 338,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 339,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 340,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 341,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 342,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 343,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 344,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 345,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 346,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 347,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 348,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 349,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 350,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 351,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 352,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 353,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 354,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 355,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 356,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 357,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 358,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 359,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 360,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 361,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 362,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 363,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 364,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 365,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 366,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 367,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 368,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 369,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 370,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 371,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 372,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 373,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 374,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 375,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 376,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 377,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 378,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 379,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 380,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 381,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 382,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 383,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 384,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 385,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 386,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 387,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 388,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 389,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 390,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 391,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 392,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 393,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 394,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 395,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 396,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 397,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 398,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 399,
+      "rainbowCount": 1
+    },
+    {
+      "levelID": 400,
+      "rainbowCount": 1
+    }
+  ]
+} 

@@ -1,0 +1,514 @@
+{
+  "loopLevels": [
+    {
+      "levelIndex": 35,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 80,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 100,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 105,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 108,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 110,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 113,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 115,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 117,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 121,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 122,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 129,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 130,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 133,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 138,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 140,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 147,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 152,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 158,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 162,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 165,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 168,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 170,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 175,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 178,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 180,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 182,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 184,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 188,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 190,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 194,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 195,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 197,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 198,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 204,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 207,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 210,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 211,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 213,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 214,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 216,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 219,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 220,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 222,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 224,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 226,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 231,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 233,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 234,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 235,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 237,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 239,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 243,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 244,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 247,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 250,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 256,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 258,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 261,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 265,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 269,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 270,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 272,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 274,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 275,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 277,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 282,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 286,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 289,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 291,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 292,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 293,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 295,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 296,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 297,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 300,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 307,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 308,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 311,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 314,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 315,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 320,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 323,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 324,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 325,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 328,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 329,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 330,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 335,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 338,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 339,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 349,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 350,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 361,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 362,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 367,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 371,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 372,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 377,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 381,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 384,
+      "isTimer": true,
+      "time": 45
+    },
+    {
+      "levelIndex": 387,
+      "isTimer": true,
+      "time": 45
+    }
+  ]
+}

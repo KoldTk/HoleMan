@@ -1,0 +1,68 @@
+{
+  "networks": {
+    "BidMachine": {
+      "android": "3.2.1.0",
+      "ios": "3.2.1.0.0"
+    },
+    "ByteDance": {
+      "android": "6.5.0.8.1",
+      "ios": "6.5.0.9.0"
+    },
+    "Chartboost": {
+      "android": "9.8.3.0",
+      "ios": "9.8.1.0"
+    },
+    "Facebook": {
+      "android": "6.19.0.2",
+      "ios": "6.17.1.0"
+    },
+    "Fyber": {
+      "android": "8.3.7.0",
+      "ios": "8.3.6.0"
+    },
+    "Google": {
+      "android": "24.2.0.0",
+      "ios": "12.2.0.0"
+    },
+    "GoogleAdManager": {
+      "android": "24.2.0.0",
+      "ios": "12.2.0.0"
+    },
+    "HyprMX": {
+      "android": "6.4.2.3",
+      "ios": "6.4.2.0.0"
+    },
+    "InMobi": {
+      "android": "10.8.2.0",
+      "ios": "10.8.2.0"
+    },
+    "IronSource": {
+      "android": "8.7.0.0.0",
+      "ios": "8.8.0.0.0"
+    },
+    "Mintegral": {
+      "android": "16.9.61.1",
+      "ios": "7.7.7.0.0"
+    },
+    "MobileFuse": {
+      "android": "1.9.0.0",
+      "ios": "1.9.0.0"
+    },
+    "Moloco": {
+      "android": "3.8.0.0",
+      "ios": "3.8.0.0"
+    },
+    "UnityAds": {
+      "android": "4.14.1.0",
+      "ios": "4.14.1.0"
+    },
+    "Verve": {
+      "android": "3.3.0.0",
+      "ios": "3.2.0.0"
+    },
+    "Vungle": {
+      "android": "7.4.3.2",
+      "ios": "7.4.5.1"
+    }
+  }
+}
