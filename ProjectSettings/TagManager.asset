@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Grid
   - Stickman
+  - Hole
   layers:
   - Default
   - TransparentFX
@@ -14,7 +15,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
+  - Grid
   - 
   - 
   - 

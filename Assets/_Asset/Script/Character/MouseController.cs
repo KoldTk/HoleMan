@@ -14,18 +14,20 @@ public class MouseController : MonoBehaviour
     }
     private void ButtonClick()
     {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 mousePos2d = new Vector2(mousePos.x, mousePos.y);
-        RaycastHit2D hit = Physics2D.Raycast(mousePos2d, Vector2.zero, Mathf.Infinity, LayerMask.GetMask("Grid"));
-        if (hit.collider != null && hit.collider.CompareTag("Hole"))
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, LayerMask.GetMask("Grid")))
         {
-            var holeTile = hit.transform.GetComponent<GridTile>();
-            var holeColor = hit.transform.GetComponent<HoleTile>();
-            if (holeTile != null)
+            if (hit.collider != null && hit.collider.CompareTag("Hole"))
             {
-                EventDispatcher<GridTile>.Dispatch(Event.MoveCharacter.ToString(), holeTile);
-                EventDispatcher<CharacterColor>.Dispatch(Event.HoleClick.ToString(), holeColor.holeColor);
-            } 
-        }
+                var holeTile = hit.transform.GetComponent<Node>();
+                var holeColor = hit.transform.GetComponent<HoleNode>();
+                if (holeTile != null)
+                {
+                    EventDispatcher<Node>.Dispatch(Event.MoveCharacter.ToString(), holeTile);
+                    EventDispatcher<CharacterColor>.Dispatch(Event.HoleClick.ToString(), holeColor.holeColor);
+                }
+            }
+        }    
     } 
 }

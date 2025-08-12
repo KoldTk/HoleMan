@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class LevelGenerator : Singleton<LevelGenerator>
 {
     [SerializeField] private int _level;
     [SerializeField] private float _spacing;
-    public Dictionary<Vector3, GridTile> map;
+    public Dictionary<Vector3Int, Node> map;
     private readonly Dictionary<int, int> _cellCodeToID = new()
     {
         //Get prefabID that match the cell code
@@ -26,13 +27,13 @@ public class LevelGenerator : Singleton<LevelGenerator>
     [Header("Prefabs")]
     public GameObject tilePrefab;
     public GameObject holePrefab;
-    public GridTile overlayTilePrefab;
+    public Node overlayTilePrefab;
     public Transform overlayContainer;
 
     void Start()
     {
         string levelFilePath = $"Levels/Level{_level}";
-        map = new Dictionary<Vector3, GridTile>();
+        map = new Dictionary<Vector3Int, Node>();
         GenerateLevel(levelFilePath);
     }
     void GenerateLevel(string filePath)
@@ -50,31 +51,39 @@ public class LevelGenerator : Singleton<LevelGenerator>
         Vector3 parentPos = transform.position;
         string[] lines = textFile.text.Split('\n');
 
-        //Get offset value so tile spawn map around the center
-        float offsetX = GetOffsetX(lines);
-        float offsetZ = GetOffsetZ(lines);
 
-        for (int z = 0; z < lines.Length; z++)
+        int rows = lines.Length;
+        int cols = lines[0].Trim().Split(' ').Length;
+
+
+        float offsetX = (cols - 1) * _spacing / 2f;
+        float offsetZ = (rows - 1) * _spacing / 2f;
+
+        for (int row = 0; row < rows; row++)
         {
-            string line = lines[z].Trim();
+            string line = lines[row].Trim();
             if (string.IsNullOrEmpty(line))
                 continue;
 
-            //Spawn prefab depend on cell codes
             string[] cells = line.Split(' ');
-            for (int x = 0; x < cells.Length; x++)
+            for (int col = 0; col < cols; col++)
             {
-                //Get spawn position for tile
-                Vector3 spawnPos = parentPos + new Vector3(x * _spacing - offsetX, 0, -z * _spacing + offsetZ);
-                int cellCode = int.Parse(cells[x]); // Get cell codes to spawn the correct prefab
-                Vector3Int cellPos = new Vector3Int(x, 0, -z);
+                int cellCode = int.Parse(cells[col]);
                 if (cellCode == 0) continue;
+
+                float worldX = col * _spacing - offsetX;
+                float worldZ = -(row * _spacing - offsetZ); 
+                Vector3 spawnPos = parentPos + new Vector3(worldX, 0, worldZ);
+
+                Vector3Int cellPos = new Vector3Int(col, 0, -row);
+
                 if (cellCode < 0)
                 {
-                    //Check if top and left position is empty to spawn hole
+
                     bool isTopLeft =
-                         (x == cellCode || cells[x - 1] != $"{cellCode}") &&
-                         (z == cellCode || lines[z - 1].Trim().Split(' ')[x] != $"{cellCode}");
+                        (col == 0 || int.Parse(cells[col - 1]) != cellCode) &&
+                        (row == 0 || int.Parse(lines[row - 1].Trim().Split(' ')[col]) != cellCode);
+
                     if (isTopLeft)
                     {
                         Vector3 holePos = spawnPos + new Vector3(_spacing / 2f, 0, -_spacing / 2f);
@@ -84,23 +93,11 @@ public class LevelGenerator : Singleton<LevelGenerator>
                 else if (cellCode > 0)
                 {
                     Instantiate(tilePrefab, spawnPos, Quaternion.identity, transform);
-                    
                 }
+
                 SpawnGridMap(cellCode, spawnPos);
             }
         }
-    }
-    private float GetOffsetX(string[] lines)
-    {
-        int cols = lines[0].Trim().Split(' ').Length;
-        float offsetX = (cols - 1) * _spacing / 2f;
-        return offsetX;
-    }
-    private float GetOffsetZ(string[] lines)
-    {
-        int rows = lines.Length;
-        float offsetZ = (rows - 1) * _spacing / 2f;
-        return offsetZ;
     }
     private void SpawnHole(int cellCode, Vector3 spawnPos)
     {
@@ -111,33 +108,52 @@ public class LevelGenerator : Singleton<LevelGenerator>
     {
         int ID = _cellCodeToID.TryGetValue(cellCode, out int value) ? value : 1;
         Vector3 overlayPos = new Vector3(spawnPos.x, spawnPos.y + _spacing, spawnPos.z);
-        var overlayKey = new Vector3(spawnPos.x, spawnPos.y, spawnPos.z);
+
+        Vector3Int nodePos = new Vector3Int(
+            Mathf.FloorToInt(spawnPos.x / _spacing),
+            Mathf.FloorToInt(spawnPos.y / _spacing),
+            Mathf.FloorToInt(spawnPos.z / _spacing)
+        );
         var overlayTile = Instantiate(overlayTilePrefab, overlayPos, Quaternion.identity, overlayContainer);
         if (cellCode < 0)
         {
-            overlayTile.AddComponent<HoleTile>();
-            HoleTile info = overlayTile.GetComponent<HoleTile>();
+            overlayTile.AddComponent<HoleNode>();
+            HoleNode info = overlayTile.GetComponent<HoleNode>();
             info.holeColor = holeDatabase[ID].holeColor;
             info.tag = "Hole";
         }
         else
         {
-            
+            SetupCharacterInfo(ID, spawnPos, overlayTile, nodePos);
         }
-        map.Add(overlayKey, overlayTile);
-        overlayTile.gridLocation = overlayPos;
+        if (!map.ContainsKey(nodePos))
+        {
+            map.Add(nodePos, overlayTile);
+        }
+        else
+        {
+            Debug.LogWarning($"Duplicate nodePos: {nodePos}");
+        }
+
+        //Save node information
+        overlayTile.nodePos = nodePos;
         overlayTile.gridColor = characterDatabase[ID].characterColor;
     }
-    private void SetupCharacterInfo(int charID, Vector3 spawnPos, GridTile tile)
+    private void SetupCharacterInfo(int charID, Vector3 spawnPos, Node node, Vector3Int nodePos)
     {
-        GameObject character = CharacterPoolManager.Instance.GetCharacter(characterDatabase[charID].ID, spawnPos + Vector3.back, Quaternion.identity);
+        GameObject character = CharacterPoolManager.Instance.GetCharacter(characterDatabase[charID].ID, spawnPos + Vector3.up * 0.1f, Quaternion.identity);
         CharInfo info = character.GetComponent<CharInfo>();
-        info.characterColor = characterDatabase[charID].characterColor;
-        info.activeTile = tile;
+        if (info != null)
+        {
+            info.characterColor = characterDatabase[charID].characterColor;
+            info.activeTile = node;
+            info.nodePos = nodePos;
+        }
     }
     private void SetupHoleInfo(int holeID, Vector3 spawnPos)
     {
         GameObject hole = Instantiate(holePrefab, spawnPos, Quaternion.identity, transform);
-
-    }    
+        HoleNode info = hole.GetComponent<HoleNode>();
+        info.holeColor = characterDatabase[holeID].characterColor;
+    }
 }

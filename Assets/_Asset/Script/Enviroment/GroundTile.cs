@@ -11,17 +11,13 @@ public class GroundTile : MonoBehaviour
     [SerializeField] private float _detectRadius;
     [SerializeField] private float _detectDistance;
     private bool _isStepped = false;
-    private bool _charIsMoving = false;
     [SerializeField] private LayerMask _playerLayer;
-
     void Start()
     {
         _originalPos = transform.position;
     }
     void Update()
     { 
-        if (_charIsMoving)
-        {
             Vector3 targetPos;
             DetectPlayer();
             //Lower block if character step on, return to original when character leave
@@ -34,15 +30,15 @@ public class GroundTile : MonoBehaviour
                 targetPos = _originalPos;
             }
             Vector3 nextPos = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * _lowerSpeed);
-            MoveBlock(nextPos);
-        }    
+            MoveBlock(nextPos); 
     }
     private void DetectPlayer()
     {
         //Only need to lower when character is moving
         //Detect player go through the block
-        Vector3 origin = transform.position + Vector3.back * 0.1f;
-        Vector3 direction = Vector3.back;
+       
+        Vector3 origin = transform.position + Vector3.up * 0.1f;
+        Vector3 direction = Vector3.up;
         _isStepped = Physics.SphereCast(origin, _detectRadius, direction, out RaycastHit hit, _detectDistance, _playerLayer);
     }   
     private void MoveBlock(Vector3 targetPos)
@@ -50,7 +46,7 @@ public class GroundTile : MonoBehaviour
         float minY = _originalPos.y - _lowerAmount;
         float maxY = _originalPos.y;
         targetPos.y = Mathf.Clamp(targetPos.y, minY, maxY);
-
+        
         transform.position = targetPos;
-    }    
+    }
 }

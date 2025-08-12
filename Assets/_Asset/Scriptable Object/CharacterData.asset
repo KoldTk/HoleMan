@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterInfos:
   - ID: 0
-    characterPrefab: {fileID: 2659281984073256830, guid: 6048182069176a442b13d3901131b9d3, type: 3}
+    characterPrefab: {fileID: 3792784257759691205, guid: 3682c2804c1e25f48aabf6106a92bfe6, type: 3}
     characterColor: 0
   - ID: 1
-    characterPrefab: {fileID: 1667982244325686332, guid: 9edef25b46a287c41857abf84eb283fe, type: 3}
+    characterPrefab: {fileID: 3792784257759691205, guid: 3682c2804c1e25f48aabf6106a92bfe6, type: 3}
     characterColor: 2

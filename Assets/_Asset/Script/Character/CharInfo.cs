@@ -6,15 +6,22 @@ using UnityEngine.UIElements;
 
 public class CharInfo : MonoBehaviour
 {
-    public GridTile activeTile;
+    public Node activeTile;
+    public Vector3Int nodePos;
     public CharacterColor characterColor;
     public int characterID;
     private PathFinder _pathFinder;
-    private GridTile _targetTile;
+    private Node _targetTile;
     private bool _canMove;
     private bool _isMoving;
-    private List<GridTile> _path = new List<GridTile>();
+    private float _fixedY;
+    private bool _lockY = false;
+    private bool _isJumping = false;
+    private List<Node> _path = new List<Node>();
     [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _jumpForce;
+    //[SerializeField] Animator _animator;
+    [SerializeField] Rigidbody _rb;
     private void LateUpdate()
     {
         if (_canMove && _path.Count > 0)
@@ -26,36 +33,53 @@ public class CharInfo : MonoBehaviour
     {
         _pathFinder = new PathFinder();
         EventDispatcher<CharacterColor>.AddListener(Event.HoleClick.ToString(), GetHoleColor);
-        EventDispatcher<GridTile>.AddListener(Event.MoveCharacter.ToString(), ClickHole);
+        EventDispatcher<Node>.AddListener(Event.MoveCharacter.ToString(), ClickHole);
 
     }
     private void OnDisable()
     {
         EventDispatcher<CharacterColor>.RemoveListener(Event.HoleClick.ToString(), GetHoleColor);
-        EventDispatcher<GridTile>.RemoveListener(Event.MoveCharacter.ToString(), ClickHole);
+        EventDispatcher<Node>.RemoveListener(Event.MoveCharacter.ToString(), ClickHole);
         EventDispatcher<CharacterColor>.Dispatch(Event.CountCharacter.ToString(), characterColor);
         CharacterPoolManager.Instance.ReturnToPool(characterID, gameObject);
     }
     private void MoveAlongPath()
     {
+        Node targetNode = _path[0];
         var step = _moveSpeed * Time.deltaTime;
-        var zIndex = _path[0].transform.position.z;
-
-        transform.position = Vector2.MoveTowards(transform.position, _path[0].transform.position, step);
-        transform.position = new Vector3(transform.position.x, transform.position.y, zIndex);
-        if (Vector2.Distance(transform.position, _path[0].transform.position) < 0.0001f)
+        if (_lockY == false)
+        {
+            _fixedY = transform.position.y; // Save current height
+            _lockY = true;
+        }
+        //Move to hole
+        Vector3 startPos = transform.position;
+        Vector3 targetPos = new Vector3(_path[0].transform.position.x, _fixedY, _path[0].transform.position.z);
+        transform.position = Vector3.MoveTowards(startPos, targetPos, step);
+        Vector2 currentXZ = new Vector2(transform.position.x, transform.position.z);
+        Vector2 targetXZ = new Vector2(targetPos.x, targetPos.z);
+        //Jump if close to hole
+        if (targetNode.GetComponent<HoleNode>() && !_isJumping && targetNode.gridColor == characterColor)
+        {
+            _isJumping = true;
+            _rb.isKinematic = false;
+            _rb.velocity = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
+            _rb.AddForce(Vector3.up * _jumpForce, ForceMode.VelocityChange);
+            //_animator.SetTrigger("Jump");
+        }    
+        if (Vector2.Distance(currentXZ, targetXZ) < 0.0001f)
         {
             _path.RemoveAt(0);
+            _lockY = false;
             if (_path.Count == 0)
             {
                 activeTile.gridColor = CharacterColor.None;
                 activeTile.isBlocked = false;
                 _canMove = false;
-                gameObject.SetActive(false);
-            }    
+            }
         }
     }
-    private void ClickHole(GridTile holeTile)
+    private void ClickHole(Node holeTile)
     {
         if (_isMoving) return;
         _targetTile = holeTile;
@@ -72,15 +96,15 @@ public class CharInfo : MonoBehaviour
         if (_targetTile == null || !_canMove || _isMoving) return;
 
         _path = _pathFinder.FindPath(activeTile, _targetTile);
+        Debug.Log($"FindPath returned path with {_path.Count} nodes");
         if (_path.Count > 0)
         {
             _isMoving = true;
         }
         else
         {
+            Debug.LogWarning("No path found!");
             _canMove = false;
         }
-
-
     }
 }
