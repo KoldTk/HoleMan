@@ -92,9 +92,9 @@ public class PathFinder
             {
                 return true;
             }
-
             return currentTile.gridColor == nextTile.gridColor; //Check next tile's color
         }
+
         foreach (var dir in directions)
         {
             Vector3Int location = currentNode.nodePos + dir;
@@ -103,25 +103,6 @@ public class PathFinder
                 neighbours.Add(nextNode);
             }
         }    
-        //// Top
-        //Vector3Int loc = new Vector3(currentNode.nodePos.x, currentNode.nodePos.y + spacing);
-        //if (map.TryGetValue(loc, out var top) && IsSameColor(currentNode, top))
-        //    neighbours.Add(top);
-
-        //// Bottom
-        //loc = new Vector3(currentNode.nodePos.x, currentNode.nodePos.y - spacing);
-        //if (map.TryGetValue(loc, out var bottom) && IsSameColor(currentNode, bottom))
-        //    neighbours.Add(bottom);
-
-        //// Right
-        //loc = new Vector2(currentNode.nodePos.x + spacing, currentNode.nodePos.y);
-        //if (map.TryGetValue(loc, out var right) && IsSameColor(currentNode, right))
-        //    neighbours.Add(right);
-
-        //// Left
-        //loc = new Vector2(currentNode.nodePos.x - spacing, currentNode.nodePos.y);
-        //if (map.TryGetValue(loc, out var left) && IsSameColor(currentNode, left))
-        //    neighbours.Add(left);
         return neighbours;
     }
 }

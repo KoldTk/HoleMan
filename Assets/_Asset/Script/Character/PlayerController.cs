@@ -44,7 +44,8 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Hole"))
+        HoleNode hole = other.GetComponent<HoleNode>();
+        if (other.CompareTag("Hole") && hole.holeColor == characterColor)
         {
             EventDispatcher<CharacterColor>.Dispatch(Event.CountCharacter.ToString(), characterColor);
             CharacterPoolManager.Instance.ReturnToPool(characterID, gameObject);
@@ -80,7 +81,7 @@ public class PlayerController : MonoBehaviour
             _lockY = false;
             if (_path.Count == 0)
             {
-                activeTile.gridColor = CharacterColor.None;
+                
                 activeTile.isBlocked = false;
                 _canMove = false;
             }
@@ -106,6 +107,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log($"FindPath returned path with {_path.Count} nodes");
         if (_path.Count > 0)
         {
+            activeTile.gridColor = CharacterColor.None;
             _isMoving = true;
         }
         else
