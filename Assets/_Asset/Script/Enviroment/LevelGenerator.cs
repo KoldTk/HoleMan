@@ -142,7 +142,7 @@ public class LevelGenerator : Singleton<LevelGenerator>
     private void SetupCharacterInfo(int charID, Vector3 spawnPos, Node node, Vector3Int nodePos)
     {
         GameObject character = CharacterPoolManager.Instance.GetCharacter(characterDatabase[charID].ID, spawnPos + Vector3.up * 0.1f, Quaternion.identity);
-        CharInfo info = character.GetComponent<CharInfo>();
+        PlayerController info = character.GetComponent<PlayerController>();
         if (info != null)
         {
             info.characterColor = characterDatabase[charID].characterColor;

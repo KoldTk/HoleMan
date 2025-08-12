@@ -9,6 +9,7 @@ public enum Event
     MoveCharacter,
     CaculatePoint,
     CountCharacter,
+    StopCountCharacter,
     SpawnReserveArea,
 }
 public class EventDispatcher<T>

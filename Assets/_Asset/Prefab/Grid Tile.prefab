@@ -2360,8 +2360,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed8042accc2d4e4d816a788bc1caed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lowerAmount: 0.1
-  _lowerSpeed: 3
+  _lowerAmount: 0.3
+  _lowerSpeed: 5
   _detectRadius: 0.4
   _detectDistance: 0.5
   _playerLayer:

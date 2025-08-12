@@ -7270,7 +7270,6 @@ GameObject:
   - component: {fileID: 7043694379695379838}
   - component: {fileID: 126821525191794069}
   - component: {fileID: 3935011422655486146}
-  - component: {fileID: 3219857091484040100}
   m_Layer: 6
   m_Name: Stickman_0
   m_TagString: Player
@@ -7352,25 +7351,6 @@ CapsuleCollider:
   m_Height: 2.08
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &3219857091484040100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3792784257759691205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c455f9691e25d8049b62f3f39fef9eeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeTile: {fileID: 0}
-  nodePos: {x: 0, y: 0, z: 0}
-  characterColor: 0
-  characterID: 0
-  _moveSpeed: 2
-  _jumpForce: 5
-  _rb: {fileID: 126821525191794069}
 --- !u!1 &5176654174329476177
 GameObject:
   m_ObjectHideFlags: 0
@@ -19491,7 +19471,6 @@ GameObject:
   - component: {fileID: 1754794301922311469}
   - component: {fileID: 9134753661099028327}
   - component: {fileID: 4778632364163931555}
-  - component: {fileID: 6520790556528433769}
   m_Layer: 6
   m_Name: StickmanUltraLowVisual_AnimatedMesh
   m_TagString: Player
@@ -19564,24 +19543,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &6520790556528433769
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9104444007042674825}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: dc169446c87060e4f96ca806dc3f549c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0

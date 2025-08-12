@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class CharInfo : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public Node activeTile;
     public Vector3Int nodePos;
@@ -40,8 +40,15 @@ public class CharInfo : MonoBehaviour
     {
         EventDispatcher<CharacterColor>.RemoveListener(Event.HoleClick.ToString(), GetHoleColor);
         EventDispatcher<Node>.RemoveListener(Event.MoveCharacter.ToString(), ClickHole);
-        EventDispatcher<CharacterColor>.Dispatch(Event.CountCharacter.ToString(), characterColor);
-        CharacterPoolManager.Instance.ReturnToPool(characterID, gameObject);
+        
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Hole"))
+        {
+            EventDispatcher<CharacterColor>.Dispatch(Event.CountCharacter.ToString(), characterColor);
+            CharacterPoolManager.Instance.ReturnToPool(characterID, gameObject);
+        }    
     }
     private void MoveAlongPath()
     {
