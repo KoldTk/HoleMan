@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.TextCore.Text;
 
 public class CharacterPoolManager : Singleton<CharacterPoolManager>
@@ -9,6 +10,14 @@ public class CharacterPoolManager : Singleton<CharacterPoolManager>
     [SerializeField] private int _poolSizePerCharacter = 50;
     [SerializeField] private Transform _parentTransform;
     private Dictionary<int, Queue<GameObject>> _characterPool;
+    private readonly Dictionary<int, Color> _IDToColor = new()
+    {
+        //Get color that match ID
+        [0] = Color.red,
+        [1] = Color.blue,
+        [2] = Color.yellow,
+        [3] = Color.green,
+    };
     private void Start()
     {
         PoolInitialize();
@@ -22,6 +31,8 @@ public class CharacterPoolManager : Singleton<CharacterPoolManager>
             for (int j = 0; j < _poolSizePerCharacter; j++)
             {
                 GameObject character = Instantiate(_characterDatabase.characterInfos[i].characterPrefab, _parentTransform);
+                var renderer = character.GetComponentInChildren<Renderer>();
+                renderer.material.color = GetColor(i);
                 character.SetActive(false);
                 poolList.Enqueue(character);
             }
@@ -49,6 +60,11 @@ public class CharacterPoolManager : Singleton<CharacterPoolManager>
         character.SetActive(true);
         return character;
     }
+    public Color GetColor(int ID)
+    {
+        Color color = _IDToColor.TryGetValue(ID, out Color value) ? value : Color.red;
+        return color;
+    }    
     public void ReturnToPool(int charID, GameObject character)
     {
         character.SetActive(false);

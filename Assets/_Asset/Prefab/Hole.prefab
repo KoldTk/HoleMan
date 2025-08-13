@@ -51273,6 +51273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holeColor: 0
+  _holeBorder: {fileID: 7786219562104823544}
 --- !u!1 &8155668542419575087
 GameObject:
   m_ObjectHideFlags: 0

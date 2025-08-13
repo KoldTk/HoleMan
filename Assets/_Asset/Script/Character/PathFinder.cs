@@ -42,12 +42,7 @@ public class PathFinder
                 if (!openList.Contains(neighbour))
                 {
                     openList.Add(neighbour);
-                }else if (newG < neighbour.G)
-                {
-                    //Find other path if cost lower
-                    neighbour.G = newG;
-                    neighbour.previous = currentGridTile;
-                }    
+                }   
             }
         }
         return new List<Node>();

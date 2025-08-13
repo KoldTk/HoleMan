@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HoleData
   m_EditorClassIdentifier: 
   holeInfos:
-  - characterPrefab: {fileID: 1875949965628945453, guid: fb4b0835191088949a491fe7a9075f3d, type: 3}
+  - characterPrefab: {fileID: 8035301849457761505, guid: 84363d14a2e821b408ee36b38d76f68e, type: 3}
     holeColor: 0
-  - characterPrefab: {fileID: 1875949965628945453, guid: fb4b0835191088949a491fe7a9075f3d, type: 3}
+  - characterPrefab: {fileID: 8035301849457761505, guid: 84363d14a2e821b408ee36b38d76f68e, type: 3}
     holeColor: 2

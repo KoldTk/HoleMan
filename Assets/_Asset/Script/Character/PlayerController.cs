@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         HoleNode hole = other.GetComponent<HoleNode>();
         if (other.CompareTag("Hole") && hole.holeColor == characterColor)
         {
-            EventDispatcher<CharacterColor>.Dispatch(Event.CountCharacter.ToString(), characterColor);
+            EventDispatcher<bool>.Dispatch(Event.SpawnUFO.ToString(), true);
             CharacterPoolManager.Instance.ReturnToPool(characterID, gameObject);
         }    
     }
@@ -81,7 +81,6 @@ public class PlayerController : MonoBehaviour
             _lockY = false;
             if (_path.Count == 0)
             {
-                
                 activeTile.isBlocked = false;
                 _canMove = false;
             }
@@ -109,6 +108,7 @@ public class PlayerController : MonoBehaviour
         {
             activeTile.gridColor = CharacterColor.None;
             _isMoving = true;
+            EventDispatcher<CharacterColor>.Dispatch(Event.CountCharacter.ToString(), characterColor);
         }
         else
         {

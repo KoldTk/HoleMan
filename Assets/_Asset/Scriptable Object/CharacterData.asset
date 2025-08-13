@@ -19,3 +19,9 @@ MonoBehaviour:
   - ID: 1
     characterPrefab: {fileID: 9155323812691432655, guid: 3120e23345c900d4a921680bf1ffd369, type: 3}
     characterColor: 2
+  - ID: 2
+    characterPrefab: {fileID: 9155323812691432655, guid: 3120e23345c900d4a921680bf1ffd369, type: 3}
+    characterColor: 3
+  - ID: 3
+    characterPrefab: {fileID: 9155323812691432655, guid: 3120e23345c900d4a921680bf1ffd369, type: 3}
+    characterColor: 1

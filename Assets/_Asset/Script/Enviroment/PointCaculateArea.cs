@@ -25,22 +25,22 @@ public class PointCaculateArea : MonoBehaviour
 
     private void SpawnUFO(CharacterColor color)
     {
-        if (_pointHole._color == color)
-        {
+        //if (_pointHole._color == color)
+        //{
            
-        } 
-        else if ( _pointHole._color != color)
-        {
-            for (int i = 0; i < _reserveArea.Count; i++)
-            {
-                if (_reserveArea[i].areaColor == CharacterColor.None || _reserveArea[i].areaColor == color && _reserveArea[i].isActiveAndEnabled)
-                {
+        //} 
+        //else if ( _pointHole._color != color)
+        //{
+        //    for (int i = 0; i < _reserveArea.Count; i++)
+        //    {
+        //        if (_reserveArea[i].areaColor == CharacterColor.None || _reserveArea[i].areaColor == color && _reserveArea[i].isActiveAndEnabled)
+        //        {
                     
-                    _reserveArea[i].areaColor = color;
-                    break;
-                }    
-            }    
-        }
+        //            _reserveArea[i].areaColor = color;
+        //            break;
+        //        }    
+        //    }    
+        //}
     }
     private void SpawnAdditionalArea(bool isSpawned)
     {

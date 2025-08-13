@@ -13,8 +13,8 @@ public class LevelGenerator : Singleton<LevelGenerator>
     private readonly Dictionary<int, int> _cellCodeToID = new()
     {
         //Get prefabID that match the cell code
-        //1 = red, 2 = blue, 3 = yellow, 4 = purple
-        //-1 = red hole, -2 = blue hole, -3 = yellow hole, -4 = purple hole
+        //1 = red, 2 = blue, 3 = yellow, 4 = green
+        //-1 = red hole, -2 = blue hole, -3 = yellow hole, -4 = green hole
         [1] = 0, [-1] = 0,
         [2] = 1, [-2] = 1,
         [3] = 2, [-3] = 2,
@@ -155,5 +155,6 @@ public class LevelGenerator : Singleton<LevelGenerator>
         GameObject hole = Instantiate(holePrefab, spawnPos, Quaternion.identity, transform);
         HoleNode info = hole.GetComponent<HoleNode>();
         info.holeColor = characterDatabase[holeID].characterColor;
+        info.ChangeHoleColor();
     }
 }
