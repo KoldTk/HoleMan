@@ -12,7 +12,7 @@ public enum Event
     SpawnUFO,
     SendCharToReserve,
     SpawnReserveArea,
-
+    ReduceHoleCounter,
 }
 public class EventDispatcher<T>
 {

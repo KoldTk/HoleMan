@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PointHole : HoleNode
@@ -7,21 +9,16 @@ public class PointHole : HoleNode
     [SerializeField] private int _counter = 16;
     [SerializeField] private UFOPointHoleArea _UFO;
     [SerializeField] private PointCaculateArea _pointCaculateArea;
+    [SerializeField] private TextMeshProUGUI _counterText;
     private int _totalDrop = 0;
-    private bool _isInFront;
+    public bool isInFront = false;
 
-    private void OnTriggerEnter(Collider other)
+    private void Start()
     {
-        if (other.CompareTag("Player"))
-        {
-            _counter -= 1;
-            
-            if (_counter <= 0)
-            {
-                RemovePointHole();
-            }    
-        }
+        ChangeHoleColor();
+        _counterText.text = _counter.ToString();
     }
+
     private void OnEnable()
     {
         EventDispatcher<CharacterColor>.AddListener(Event.CountCharacter.ToString(), CountCharNum);
@@ -32,13 +29,21 @@ public class PointHole : HoleNode
         EventDispatcher<CharacterColor>.RemoveListener(Event.CountCharacter.ToString(), CountCharNum);
         EventDispatcher<CharacterColor>.RemoveListener(Event.SpawnUFO.ToString(), SpawnPointHoleUFO);
     }
-    private void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        ChangeHoleColor();
+        if (other.CompareTag("Player") && isInFront)
+        {
+            _counter -= 1;
+            _counterText.text = _counter.ToString();
+            if (_counter <= 0)
+            {
+                RemovePointHole();
+            }
+        }
     }
     private void CountCharNum(CharacterColor charColor)
     {
-        if (charColor == holeColor)
+        if (charColor == holeColor && isInFront)
         {
             _totalDrop++;
             _UFO.canSpawn = true;
@@ -46,6 +51,7 @@ public class PointHole : HoleNode
     }    
     private void SpawnPointHoleUFO(CharacterColor color)
     {
+        if (!isInFront) return;
         if (_UFO.isActiveAndEnabled || !_UFO.canSpawn) return;
         StartCoroutine(SpawnUFOSequence());
     }
@@ -72,6 +78,7 @@ public class PointHole : HoleNode
     private void RemovePointHole()
     {
         //Animation sequence if have
+        transform.parent.GetComponent<HoleColumn>().OnHoleDissapear(this);
         Destroy(gameObject, 0.2f);
-    }    
+    }  
 }
