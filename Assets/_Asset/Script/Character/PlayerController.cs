@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour
         if (Vector2.Distance(currentXZ, targetXZ) < 0.0001f)
         {
             _path.RemoveAt(0);
+            activeTile.gridColor = CharacterColor.None;
             _lockY = false;
             if (_path.Count == 0)
             {
@@ -106,7 +107,6 @@ public class PlayerController : MonoBehaviour
         Debug.Log($"FindPath returned path with {_path.Count} nodes");
         if (_path.Count > 0)
         {
-            activeTile.gridColor = CharacterColor.None;
             _isMoving = true;
             EventDispatcher<CharacterColor>.Dispatch(Event.CountCharacter.ToString(), characterColor);
         }

@@ -83,11 +83,11 @@ public class PathFinder
         };
         bool IsSameColor(Node currentTile, Node nextTile)
         {
-            if (nextTile.gridColor == CharacterColor.None || currentTile.gridColor == CharacterColor.None)
+            if (currentTile.gridColor == nextTile.gridColor)
             {
                 return true;
             }
-            return currentTile.gridColor == nextTile.gridColor; //Check next tile's color
+            return (nextTile.gridColor == CharacterColor.None || currentTile.gridColor == CharacterColor.None);
         }
 
         foreach (var dir in directions)

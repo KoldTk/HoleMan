@@ -16807,7 +16807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfe470db085b5c744adf0975747c2985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fallingcharPrefab: {fileID: 9155323812691432655, guid: 6f9108d39eb2f0a4e9c10826ed57217d, type: 3}
+  _fallingcharPrefab: {fileID: 9155323812691432655, guid: df21ebad9655f9a47b4374841bc9a3bf, type: 3}
   _poolSizePerCharacter: 50
   _parentTransform: {fileID: 2135734529}
 --- !u!198 &60783762217087818
