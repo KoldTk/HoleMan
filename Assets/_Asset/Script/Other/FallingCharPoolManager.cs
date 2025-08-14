@@ -39,6 +39,11 @@ public class FallingCharPoolManager : Singleton<FallingCharPoolManager>
     }
     public void ReturnToPool(GameObject character)
     {
+        var reserveCharComp = character.GetComponent<ReserveCharacter>();
+        if (reserveCharComp != null)
+        {
+            Destroy(reserveCharComp);
+        }
         character.SetActive(false);
         _fallingCharQueue.Enqueue(character);
     }    

@@ -5,13 +5,41 @@ using UnityEngine;
 public class ReserveArea : MonoBehaviour
 {
     public CharacterColor areaColor = CharacterColor.None;
-    void Start()
+    public GameObject UFO;
+    public SpriteRenderer areaSprite;
+    public CharacterColor charDropColor;
+    private readonly Dictionary<CharacterColor, Color> _colorToID = new()
     {
-        
-    }
-    private void OnCollisionEnter(Collision collision)
+        //Get color that match ID
+        [CharacterColor.Red] = Color.red,
+        [CharacterColor.Blue] = Color.blue,
+        [CharacterColor.Yellow] = Color.yellow,
+        [CharacterColor.Green] = Color.green,
+    };
+    private void OnEnable()
     {
-        Rigidbody playerBody = collision.gameObject.GetComponent<Rigidbody>();
-        playerBody.isKinematic = true;
+        EventDispatcher<CharacterColor>.AddListener(Event.SendCharToReserve.ToString(), GetCharColor);
     }
+    private void OnDisable()
+    {
+        EventDispatcher<CharacterColor>.RemoveListener(Event.SendCharToReserve.ToString(), GetCharColor);
+    }
+    public bool IsValidArea()
+    {
+        if(areaColor == CharacterColor.None || areaColor == charDropColor)
+        {
+            return true;
+        }    
+        return false;
+    }
+    public void GetCharColor(CharacterColor color)
+    {
+        charDropColor = color;
+    }
+    
+    public void ChangeAreaColor(CharacterColor charColor)
+    {
+        Color areaColor = _colorToID.TryGetValue(charColor, out Color value) ? value : Color.red;
+        areaSprite.color = areaColor;
+    }    
 }

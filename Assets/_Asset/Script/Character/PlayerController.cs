@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         HoleNode hole = other.GetComponent<HoleNode>();
         if (other.CompareTag("Hole") && hole.holeColor == characterColor)
         {
-            EventDispatcher<bool>.Dispatch(Event.SpawnUFO.ToString(), true);
+            EventDispatcher<CharacterColor>.Dispatch(Event.SpawnUFO.ToString(), characterColor);
             CharacterPoolManager.Instance.ReturnToPool(characterID, gameObject);
         }    
     }

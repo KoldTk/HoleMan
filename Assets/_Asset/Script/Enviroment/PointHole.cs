@@ -5,7 +5,8 @@ using UnityEngine;
 public class PointHole : HoleNode
 {
     [SerializeField] private int _counter = 16;
-    [SerializeField] private UFOController _UFO;
+    [SerializeField] private UFOPointHoleArea _UFO;
+    [SerializeField] private PointCaculateArea _pointCaculateArea;
     private int _totalDrop = 0;
     private bool _isInFront;
 
@@ -24,12 +25,12 @@ public class PointHole : HoleNode
     private void OnEnable()
     {
         EventDispatcher<CharacterColor>.AddListener(Event.CountCharacter.ToString(), CountCharNum);
-        EventDispatcher<bool>.AddListener(Event.SpawnUFO.ToString(), SpawnUFO);
+        EventDispatcher<CharacterColor>.AddListener(Event.SpawnUFO.ToString(), SpawnPointHoleUFO);
     }
     private void OnDisable()
     {
         EventDispatcher<CharacterColor>.RemoveListener(Event.CountCharacter.ToString(), CountCharNum);
-        EventDispatcher<bool>.RemoveListener(Event.SpawnUFO.ToString(), SpawnUFO);
+        EventDispatcher<CharacterColor>.RemoveListener(Event.SpawnUFO.ToString(), SpawnPointHoleUFO);
     }
     private void Start()
     {
@@ -43,19 +44,21 @@ public class PointHole : HoleNode
             _UFO.canSpawn = true;
         }
     }    
-    private void SpawnUFO(bool isSpawned)
+    private void SpawnPointHoleUFO(CharacterColor color)
     {
         if (_UFO.isActiveAndEnabled || !_UFO.canSpawn) return;
-        _UFO.characterColor = holeColor;
         StartCoroutine(SpawnUFOSequence());
     }
     private IEnumerator SpawnUFOSequence()
     {
         yield return new WaitForSeconds(0.5f);
+        EventDispatcher<CharacterColor>.Dispatch(Event.SendCharToReserve.ToString(), _UFO.charToHoleColor);
+        Debug.Log("DropNumber" + _UFO.dropNumber);
         if (_totalDrop > _counter)
         {
             int remainingChar = _totalDrop - _counter;
-            EventDispatcher<int>.Dispatch(Event.SendCharToReserve.ToString(), remainingChar);
+            _pointCaculateArea.SpawnReserve(remainingChar, _UFO.charToHoleColor);
+            
             _UFO.dropNumber = _counter;
         }
         else
@@ -63,6 +66,7 @@ public class PointHole : HoleNode
             _UFO.dropNumber = _totalDrop;
         }
         yield return null;
+        _totalDrop = 0;
         _UFO.gameObject.SetActive(true);
     }
     private void RemovePointHole()
