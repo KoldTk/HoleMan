@@ -44,6 +44,7 @@ public class FallingCharPoolManager : Singleton<FallingCharPoolManager>
         {
             Destroy(reserveCharComp);
         }
+        character.transform.SetParent(_parentTransform, false);
         character.SetActive(false);
         _fallingCharQueue.Enqueue(character);
     }    

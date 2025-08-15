@@ -1,0 +1,9 @@
+//( > 0 ) Non interactable
+//( < 0 ) Interactable
+0: No grid
+1: Red grid	-1: Red hole
+2: Blue grid	-2: Blue hole
+3: Yellow grid	-3: Yellow hole
+4: Green grid	-4: Green hole
+9: Block	-9: Ice
+

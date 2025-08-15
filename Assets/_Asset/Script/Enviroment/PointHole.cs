@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PointHole : HoleNode
 {
-    [SerializeField] private int _counter = 16;
+    public int counter = 16;
     [SerializeField] private UFOPointHoleArea _UFO;
     [SerializeField] private PointCaculateArea _pointCaculateArea;
     [SerializeField] private TextMeshProUGUI _counterText;
@@ -16,7 +16,7 @@ public class PointHole : HoleNode
     private void Start()
     {
         ChangeHoleColor();
-        _counterText.text = _counter.ToString();
+        _counterText.text = counter.ToString();
     }
 
     private void OnEnable()
@@ -33,9 +33,9 @@ public class PointHole : HoleNode
     {
         if (other.CompareTag("Player") && isInFront)
         {
-            _counter -= 1;
-            _counterText.text = _counter.ToString();
-            if (_counter <= 0)
+            counter -= 1;
+            _counterText.text = counter.ToString();
+            if (counter <= 0)
             {
                 RemovePointHole();
             }
@@ -60,12 +60,12 @@ public class PointHole : HoleNode
         yield return new WaitForSeconds(0.5f);
         EventDispatcher<CharacterColor>.Dispatch(Event.SendCharToReserve.ToString(), _UFO.charToHoleColor);
         Debug.Log("DropNumber" + _UFO.dropNumber);
-        if (_totalDrop > _counter)
+        if (_totalDrop > counter)
         {
-            int remainingChar = _totalDrop - _counter;
+            int remainingChar = _totalDrop - counter;
             _pointCaculateArea.SpawnReserve(remainingChar, _UFO.charToHoleColor);
             
-            _UFO.dropNumber = _counter;
+            _UFO.dropNumber = counter;
         }
         else
         {

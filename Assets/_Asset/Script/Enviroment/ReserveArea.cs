@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class ReserveArea : MonoBehaviour
         [CharacterColor.Yellow] = Color.yellow,
         [CharacterColor.Green] = Color.green,
     };
+    public List<ReserveCharacter> reserveCharList = new List<ReserveCharacter>();
     private void OnEnable()
     {
         EventDispatcher<CharacterColor>.AddListener(Event.SendCharToReserve.ToString(), GetCharColor);
@@ -41,5 +43,5 @@ public class ReserveArea : MonoBehaviour
     {
         Color areaColor = _colorToID.TryGetValue(charColor, out Color value) ? value : Color.red;
         areaSprite.color = areaColor;
-    }    
+    }   
 }

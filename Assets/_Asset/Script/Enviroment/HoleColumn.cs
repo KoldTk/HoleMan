@@ -44,6 +44,7 @@ public class HoleColumn : MonoBehaviour
         {
             behindHole.position = Vector3.MoveTowards(behindHole.position, frontPos, _moveSpeed * Time.deltaTime);
             yield return null;
-        }    
+        }
+        EventDispatcher<Transform>.Dispatch(Event.FromReserveToHole.ToString(), holes[0].transform);
     }    
 }

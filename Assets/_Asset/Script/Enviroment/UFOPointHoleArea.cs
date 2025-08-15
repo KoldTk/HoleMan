@@ -9,7 +9,7 @@ public class UFOPointHoleArea : UFOController
     public CharacterColor charToHoleColor;
     private void OnEnable()
     {
-        StartCoroutine(SpawnPlayer(dropNumber, _dropPoint));
+        StartCoroutine(SpawnPlayer(dropNumber, dropPoint));
     }
     private void OnDisable()
     {

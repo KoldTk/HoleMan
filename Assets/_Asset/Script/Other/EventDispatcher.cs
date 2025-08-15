@@ -13,6 +13,7 @@ public enum Event
     SendCharToReserve,
     SpawnReserveArea,
     ReduceHoleCounter,
+    FromReserveToHole,
 }
 public class EventDispatcher<T>
 {

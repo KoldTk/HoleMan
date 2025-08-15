@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UFOController : MonoBehaviour
 {
-    public Transform _dropPoint;
+    public Transform dropPoint;
     public bool canSpawn;
     public readonly Dictionary<CharacterColor, Color> colorToID = new()
     {
